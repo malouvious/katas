@@ -3,7 +3,7 @@ import unittest
 class SomeTestMethods(unittest.TestCase):
 	def test_price_of_one_apple(self):
 		scanner = Scanner()
-		price_a = scanner.scan_apple()
+		price_a = scanner.scan("Apple")
 		self.assertEquals(price_a, 0.30)
 
 	def test_price_of_one_biscuits(self):
@@ -13,7 +13,7 @@ class SomeTestMethods(unittest.TestCase):
 
 class Scanner(object):
 
-	def scan_apple(self):
+	def scan(self, item):
 		return 0.30
 
 	def scan_biscuit(self):
