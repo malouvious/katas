@@ -2,14 +2,16 @@ import unittest
 
 class SomeTestMethods(unittest.TestCase):
 	def test_price_of_one_apple(self):
-		scanner = Scanner()
+		prices = {"Apple": 0.30, "Biscuit": 0.50}
+		scanner = Scanner(prices)
 		price_a = scanner.scan("Apple")
-		self.assertEquals(price_a, 0.30)
+		self.assertEqual(price_a, 0.30)
 
 	def test_price_of_one_biscuits(self):
-		scanner = Scanner()
+		prices = {"Apple": 0.30, "Biscuit": 0.50}
+		scanner = Scanner(prices)
 		price_b = scanner.scan("Biscuit")
-		self.assertEquals(price_b, 0.50)
+		self.assertEqual(price_b, 0.50)
 
 	# def test_price_of_one_crisps(self):
 	# 	scanner = Scanner()
@@ -18,8 +20,8 @@ class SomeTestMethods(unittest.TestCase):
 
 class Scanner(object):
 
-	def __init__(self):
-		self.prices = {"Apple": 0.30, "Biscuit": 0.50}
+	def __init__(self, prices):
+		self.prices = prices
 
 	def scan(self, item):
 		return self.prices[item]
