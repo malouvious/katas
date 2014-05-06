@@ -11,10 +11,15 @@ class SomeTestMethods(unittest.TestCase):
 		price_b = scanner.scan("Biscuit")
 		self.assertEquals(price_b, 0.50)
 
+	# def test_price_of_one_crisps(self):
+	# 	scanner = Scanner()
+	# 	price_c = scanner.scan("Crisps")
+	# 	self.assertEquals(price_c, 1.00)
+
 class Scanner(object):
 
+	def __init__(self):
+		self.prices = {"Apple": 0.30, "Biscuit": 0.50}
+
 	def scan(self, item):
-		if item == "Apple":
-			return 0.30
-		elif item == "Biscuit":
-			return 0.50
+		return self.prices[item]
